@@ -8,9 +8,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://kadurienzo:ballsdeep%402025@mern.zylr0.mongodb.net/?retryWrites=true&w=majority&appName=MERN");
+mongoose.connect("mongodb+srv://kadurienzo:ballsdeep%402025@mern.zylr0.mongodb.net/?retryWrites=true&w=majority&appName=MERN")
+.then(() => console.log('Connected to MongoDB'))
+.catch((error) => console.log('Error connecting to MongoDB:', error));
 
-app.listen(3000,()=>{
+const port = process.env.PORT || 3000;
+app.listen(port,()=>{
   console.log("Port 3000 is awake and running");
 });
 
